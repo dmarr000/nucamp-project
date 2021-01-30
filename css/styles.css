@@ -48,3 +48,17 @@ a, a:hover {
 .carousel {
     border: solid #5637DD;
 }
+
+/*may need to remove these three hover rules */
+
+.carousel:hover {
+    border: 10px solid #5637DD;
+}
+
+.card-header:hover {
+    background-color: #674cdd;
+}
+
+#loginI:hover {
+    color: blue;
+}

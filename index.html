@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
     <link rel="stylesheet" href="css/styles.css" />
 
-    <title>NucCamp: A Better Way to Camp</title>
+    <title>NuCamp: A Better Way to Camp</title>
 </head>
 
 <body>
@@ -31,12 +31,68 @@
                     <h2>A better way to camp</h2>
                 </div>
                 <div class="col-md-4 col-xl-2 mt-4">
-                    <a class="btn btn-lg btn-info text-nowrap" role="button" href="#reserveForm" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Or call us at <br /><strong>1-206-555-1234</strong>"> Reserve Campsite </a>
+                    <a class="btn btn-lg btn-info text-nowrap" role="button" data-toggle="modal" data-target="#reserveModal"> Reserve Campsite </a>
                 </div>
             </div>
 
         </div>
     </header>
+
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h3 class="modal-title">Reserve a Campsite</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form id="reserveForm">
+                            <div class="row form-group">
+                                <label class="col-sm-6 col-form-label">Number of Campers</label>
+                                <div class="col">
+                                    <select class="form-control" name="numCampers" id="numCampers">
+                                        <option selected>Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label class="col-sm-6 col-form-label" for="date">Search</label>
+                                <div class="col">
+                                    <input class="form-control" type="date" id="date" name="date" placeholder="Date" />
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="col-sm-6 col-form-label">Campsite Type</label>
+                                <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="siteType" id="siteTent" value="tent" checked> Tent
+                                      </label>
+                                      <label class="btn btn-primary">
+                                        <input type="radio" name="siteType" id="siteRV" value="RV"> RV
+                                      </label>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col">
+                                    <button data-dismiss="modal" class="btn btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
         <div class="container">
@@ -55,7 +111,7 @@
                                 class="fa fa-address-card fa-lg"></i>Contact</a></li>
                 </ul>
                 <span class="navbar-text ml-auto">
-                    <a role="button" data-toggle="modal" data-target="#loginModal">
+                    <a id="loginI" role="button" data-toggle="modal" data-target="#loginModal">
                         <i class="fa fa-sign-in"></i> Login
                     </a>
                 </span>
@@ -103,8 +159,8 @@
     <div class="container">
 
         <div class="row cow-content">
-            <div class="col-md-8 mt-5 mx-auto">
-                <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+            <div class="col-md-8 mt-5 mx-auto">   <!--added the data-interval below-->
+                <div id="homeCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
                     <ol class="carousel-indicators">
                         <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#homeCarousel" data-slide-to="1"></li>
@@ -114,7 +170,7 @@
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="img/breadcrumb-trail.jpg" alt="Breadcrumb Trail Campground" />
                             <div class="carousel-caption">
-                                <h3>Breadbrumb Trail Campground</h3>
+                                <h3>Breadcrumb Trail Campground</h3>
                                 <p class="d-none d-sm-block">Let Nucamp be your guide to this off-the-beaten-path, hike-in-only campground.</p>
                             </div>
                         </div>
@@ -193,44 +249,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row row-content">
-            <div class="col-sm-6 mx-auto">
-                <div class="card">
-                    <h3 class="card-header bg-info text-white">Reserve a Campsite</h3>
-                    <div class="card-body">
-                        <form id="reserveForm">
-                            <div class="row form-group">
-                                <label class="col-sm-6 col-form-label">Number of Campers</label>
-                                <div class="col">
-                                    <select class="form-control" name="numCampers" id="numCampers">
-                                        <option selected>Select</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <label class="col-sm-6 col-form-label" for="date">Date</label>
-                                <div class="col">
-                                    <input class="form-control" type="date" id="date" name="date" placeholder="Date" />
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-primary">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="site-footer">
         <div class="container">
@@ -254,6 +272,10 @@
                             class="fa fa-twitter"></i></a>
                     <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i
                             class="fa fa-youtube"></i></a>
+                    <a class="btn btn-social-icon btn-link" href="https://www.alltrails.com/" data-toggle="tooltip" title="Find a Trail"><i 
+                        class="fa fa-bicycle"></i> 
+                        <!-- added another btn link with tooltip fa icon, surprised nothing for trails, hiking, running, but a bike works for now-->
+                    </a>
                 </div>
                 <div class="col-sm-4 text-center">
                     <a role="button" class="btn btn-link" href="tel:+12065551234"><i
@@ -270,11 +292,11 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script>
+<!--<script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
-    </script>
+    </script> This comment out breaks my 'Find a trail' tooltip... but it is just for practice anyway-->
 
 </body>
 

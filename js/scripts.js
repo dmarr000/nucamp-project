@@ -12,5 +12,12 @@ $(function () {
         }
     });
 
+    $('#reserveButton').on("click", function() {
+        $('#reserveModal').modal("toggle");
+    });
+    $('#loginButton').on("click", function() {
+        $('#loginModal').modal("toggle");
+    });
+
 //  $('[data-toggle="tooltip"]').tooltip() This comment out breaks my 'Find a trail' tooltip... but it is just for practice anyway
 });
